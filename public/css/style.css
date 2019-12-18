@@ -1,0 +1,17 @@
+html, body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
+    height: 100vh;
+    margin: 0;
+}
+.temp {
+    font-size: 18px;
+}
+.weather-icon {
+    width: 50px;
+}
+table, table th {
+    text-align: center;
+}
