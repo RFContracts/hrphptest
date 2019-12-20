@@ -176,6 +176,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\WeatherServiceProvider::class,
+        App\Providers\MailSenderServiceProvider::class,
 
     ],
 
@@ -225,6 +227,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'YandexWeather' => App\Helpers\Weather\Yandex::class,
+        'MailSender' => App\Helpers\MailSender::class,
 
     ],
 

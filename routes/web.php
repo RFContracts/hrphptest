@@ -21,3 +21,4 @@ Route::get('/order/{id}/edit', 'OrderController@edit');
 Route::patch('/order/{id}', 'OrderController@update');
 
 Route::get('/product', 'ProductController@index');
+Route::post('/product/ajaxPrice', 'ProductController@ajaxPrice');

@@ -3,11 +3,25 @@
 Требуется сделать форк текущего репозитария, выполнить задание и прислать нам ссылку на ваш форк. 
 Либо, если вы желаете использовать другой фреймворк (не Ларавел), то выполнить задание, залить код на гитхаб и прислать нам ссылку.
 
+## Настройка отправки писем
+- Настройка аккаунта Google
+    - Включите двухэтапную проверку в Google
+    - Создайте приложение
+    - Используйте пароль в `.env` для `MAIL_PASSWORD`
+- `.env`
+    - `MAIL_DRIVER=smtp`
+    - `MAIL_HOST=smtp.gmail.com`
+    - `MAIL_PORT=587`
+    - `MAIL_USERNAME=EMAIL`
+    - `MAIL_PASSWORD=PASSWORD`
+    - `MAIL_ENCRYPTION=tls`
+- Cron отправка почты - измените под себя эту команду `* * * * * cd /path-to-your-project && php artisan email:send >> /dev/null 2>&1`
 
 ## Настройка проекта
 Для Laravel:
 - `composer install`
 - настроить `.env` файл
+    - Добавить `X_YANDEX_API_KEY`
 - `php artisan key:generate`
 - `php artisan migrate`
 - `php artisan db:seed`

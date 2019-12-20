@@ -1,3 +1,6 @@
+<?php
+/** @var \App\Product[] $model * */
+?>
 @extends('layouts.app')
 
 @section('content')
@@ -23,8 +26,11 @@
                                 <tr>
                                     <th scope="row">{{$item->id}}</th>
                                     <td>{{$item->name}}</td>
-                                    <td>{{$item->name}}</td>
-                                    <td>{{$item->price}} ₽</td>
+                                    <td>{{$item->vendor->name}}</td>
+                                    <td class="ajax-price">
+                                        <input type="hidden" name="price" class="form-control" placeholder="Введите стоимость" value="{{$item->price}}" disabled>
+                                        <span class="price-value price-{{$item->id}}">{{$item->price}} ₽</span>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -32,6 +38,10 @@
                 <div align="center">
                     {{$model->links()}}
                 </div>
+                @else
+                    <tr>
+                        <td colspan="4">Продуктов не найдено.</td>
+                    </tr>
                 @endif
             </div>
         </div>

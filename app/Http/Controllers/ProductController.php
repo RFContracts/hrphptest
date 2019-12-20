@@ -2,15 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
+use App\Product;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        $model = DB::table('products')->orderBy('name')->paginate(25);
+        $model = Product::orderBy('name')->paginate(25);
         return view('product.index', [
             'model' => $model
         ]);
+    }
+
+    public function ajaxPrice(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|integer',
+            'price' => 'required|integer'
+        ]);
+        Product::where(['id' => request('id')])->update(['price' => request('price')]);
     }
 }

@@ -1,3 +1,7 @@
+<?php
+/** @var \App\OrderProduct $model * */
+/** @var \App\Partner $selectPartner * */
+?>
 @extends('layouts.app')
 
 @section('content')
@@ -19,8 +23,8 @@
                     <div class="form-group">
                         <strong>Партнер</strong>
                         <select class="form-control" name="partner_id">
-                            @foreach($select_partner as $partner)
-                                <option value="{{ $partner->id }}" {{ $model->order->partner->id == $partner->id ? 'selected="selected"' : '' }}>{{ $partner->name }}</option>
+                            @foreach($selectPartner as $partner)
+                                <option value="{{ $partner->id }}" {{ $model->order->partner->id == $partner->id ? 'selected="selected"' : '' }}>{{$partner->name}}</option>
                             @endforeach
                         </select>
                         <span class="text-danger">{{ $errors->first('partner_id') }}</span>
